@@ -58,24 +58,30 @@ class _RegisterFormState extends State<RegisterForm> {
             const SizedBoxH10(),
             TextFormField(
             validator: validateEmail, 
-            controller: nameController,
+            controller: emailController,
             decoration: formDecoration("Email address", Icons.mail_outline),),
             const SizedBoxH10(),
             TextFormField(
             validator: validatePassword, 
-            controller: nameController,
+            controller: passwordController,
             decoration: formDecoration("Password", Icons.lock_outline),),
             const SizedBoxH10(),
             TextFormField(
             validator: validateConfirmPassword, 
-            controller: nameController,
+            controller: confirmPasswordController,
             decoration: formDecoration("Confirm Password", Icons.lock_outline),),
             const SizedBoxH20(),
             CupertinoButton(
               borderRadius: const BorderRadius.all(Radius.circular(20)),
               color: Colors.indigo,
-              child: Text("Sign up", style: style16White,), 
-              onPressed: () {}
+              child: const Text("Sign up", style: style16White,), 
+              onPressed: () {
+                context.read<UserViewModel>().createdUserInUI(context, 
+                name: nameController.text.trim(), 
+                email: emailController.text.trim(), 
+                password: passwordController.text.trim(), 
+                confirmPassword: confirmPasswordController.text.trim());
+               }
               ) 
           ],),),
     );

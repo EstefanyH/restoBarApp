@@ -29,8 +29,6 @@ String? validateConfirmPassword(String? value){
   if(value == null || value.isEmpty) {
     return 'please retype password!';
   }
-  else if (validatePassword(value).toString() != value) {
-    return 'password do not match';
-  }
+  
   return null;
 }

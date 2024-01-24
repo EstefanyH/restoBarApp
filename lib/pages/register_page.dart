@@ -23,7 +23,15 @@ class RegisterPage extends StatelessWidget {
         //  style: style16White,),
       ),
       backgroundColor: Colors.white,
-     
+      body: const SafeArea(
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: RegisterForm(),)),)
+          ],)),
       );
   }
 }

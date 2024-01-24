@@ -60,7 +60,9 @@ class _LoginFormState extends State<LoginForm> {
               alignment: MainAxisAlignment.end,
               children: [ 
                 TextButton(
-                  onPressed: (){ }, 
+                  onPressed: (){ 
+                    context.read<UserViewModel>().resetPasswordInUI(context, email: emailController.text.trim());
+                  }, 
                   child: const Text(
                     'Forgot Password?', 
                     style: style16Black,)) ],
