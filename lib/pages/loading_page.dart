@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/routes/route_manager.dart';
 
 import '../widgets/app_progress_indicator.dart';
@@ -29,12 +30,10 @@ class _LoadingPageState extends State<LoadingPage> {
       body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Loading Page",
-          style: TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.w300
-            ),),
-            AppProgressIndicator(),
+          Text("First Page",
+            style: titleStyleIndigo),
+          SizedBoxH20(),
+          AppProgressIndicator(),
         ],),),
     );
   }
