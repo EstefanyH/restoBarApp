@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
 
@@ -18,11 +19,30 @@ class _LoginFormState extends State<LoginForm> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
 
+  Future<Position> determinePosition() async {
+    LocationPermission permission;
+    permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('error');
+      }
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
+  void getCurrentLocation() async {
+    Position position = await determinePosition();
+    print(position.latitude);
+    print(position.longitude);
+  }
+
   @override
   void initState() {
     super.initState();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    getCurrentLocation();
   }
 
   @override
@@ -61,7 +81,8 @@ class _LoginFormState extends State<LoginForm> {
               children: [ 
                 TextButton(
                   onPressed: (){ 
-                    context.read<UserViewModel>().resetPasswordInUI(context, email: emailController.text.trim());
+                    context.read<UserViewModel>().resetPasswordInUI(context, 
+                    email: emailController.text.trim());
                   }, 
                   child: const Text(
                     'Forgot Password?', 
