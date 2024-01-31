@@ -33,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
 
   void getCurrentLocation() async {
     Position position = await determinePosition();
-    print(position.latitude);
+    print( position.latitude);
     print(position.longitude);
   }
 

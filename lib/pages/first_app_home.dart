@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/pages/views/maps_view.dart';
 import 'package:restobarapp/pages/views/point_view.dart';
+import 'package:restobarapp/pages/views/setting_view.dart';
 import 'package:restobarapp/pages/views/user_inactive_view.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
 
@@ -17,19 +18,19 @@ int selectIndex = 0;
 
 class _FirstAppHomeState extends State<FirstAppHome> {
   
-  final screens = [const MpasView(), const PointsView(), const UserInactiveView()];
+  final screens = [const MpasView(), const PointsView(), const UserInactiveView(), const SettingView()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: const Text('First App', 
-          style: style16White,),
+          style: style16White,),),
           actions: [
             IconButton(onPressed: () { 
               context.read<UserViewModel>().logoutUserInUI(context);
             }, icon: const Icon(Icons.exit_to_app))
-          ],),
+          ],),*/
           body: IndexedStack(
             index: selectIndex,
             children: screens,),
@@ -57,6 +58,11 @@ class _FirstAppHomeState extends State<FirstAppHome> {
                 icon: Icon(Icons.person_3_outlined),
                 activeIcon: Icon(Icons.person_3),
                 label: 'Inactivos',
+                backgroundColor: Colors.indigo),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings_outlined),
+                activeIcon: Icon(Icons.settings),
+                label: 'Configuración',
                 backgroundColor: Colors.indigo),
               ],
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const String GOOGLE_MAPS_API_KEY = "AIzaSyAkIUe9tMzzvldZzTr5JGsZ7USAPAh0uWw";
+
 InputDecoration formDecoration(String labelText, IconData iconData) {
   return InputDecoration(
     errorStyle: const TextStyle(
