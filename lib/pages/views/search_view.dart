@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:restobarapp/widgets/user_inactive_form.dart';
+import 'package:restobarapp/widgets/search_form.dart';
 
-class UserInactiveView extends StatefulWidget {
-  const UserInactiveView({super.key});
+class SearchView extends StatefulWidget {
+  const SearchView({super.key});
 
   @override
-  State<UserInactiveView> createState() => _UserInactiveViewState();
+  State<SearchView> createState() => _SearchViewState();
 }
 
-class _UserInactiveViewState extends State<UserInactiveView> {
+class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +21,8 @@ class _UserInactiveViewState extends State<UserInactiveView> {
         child: Stack(
           children: [Padding(
             padding: EdgeInsets.all(15.0),
-            child: Center(child: SingleChildScrollView(
-              child: UserInactiveForm(),),),)],)),
+            child: SingleChildScrollView(
+              child: SearchForm(),),)],)),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restobarapp/misc/constants.dart';
 
 import '../routes/route_manager.dart';
 import '../widgets/register_form.dart';

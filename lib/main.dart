@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restobarapp/routes/route_manager.dart';
+import 'package:restobarapp/view_models/search_view_model.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
      
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => UserViewModel())
+        ChangeNotifierProvider(create: (context) => UserViewModel()),
+        ChangeNotifierProvider(create: (context) => SearchViewModel())
       ],
       child: MaterialApp( 
         debugShowCheckedModeBanner: false,

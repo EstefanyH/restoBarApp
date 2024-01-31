@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:restobarapp/misc/constants.dart';
-import 'package:restobarapp/pages/views/maps_view.dart';
 import 'package:restobarapp/pages/views/point_view.dart';
+import 'package:restobarapp/pages/views/search_view.dart';
 import 'package:restobarapp/pages/views/setting_view.dart';
 import 'package:restobarapp/pages/views/user_inactive_view.dart';
-import 'package:restobarapp/view_models/user_view_model.dart';
 
 class FirstAppHome extends StatefulWidget {
   const FirstAppHome({super.key});
@@ -18,7 +15,7 @@ int selectIndex = 0;
 
 class _FirstAppHomeState extends State<FirstAppHome> {
   
-  final screens = [const MpasView(), const PointsView(), const UserInactiveView(), const SettingView()];
+  final screens = [const SearchView(), const PointsView(), const UserInactiveView(), const SettingView()];
 
   @override
   Widget build(BuildContext context) {
