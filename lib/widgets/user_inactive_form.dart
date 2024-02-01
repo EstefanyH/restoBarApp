@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restobarapp/misc/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:restobarapp/model/User.dart';
+
+import '../view_models/user_inactive_view_model.dart';
 
 class UserInactiveForm extends StatefulWidget {
   const UserInactiveForm({super.key});
@@ -9,19 +12,41 @@ class UserInactiveForm extends StatefulWidget {
 }
 
 class _UserInactiveFormState extends State<UserInactiveForm> {
+
+  //final titles = ["List 1","List 2","List 3"];
+  //final subtitles = ["Here is list 1","Here is list list 2","List 3"];
+  //final icons = [Icons.ac_unit, Icons.access_alarm, Icons.access_time];
+
   @override
   Widget build(BuildContext context) {
-    return const Form(
-      child: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Usuarios Off", style: titleStyleIndigo,),
-            SizedBoxH20()  
-          ],),
-        )
+    return Consumer<UsuarioInactivoViewModel>(
+      builder: (context, viewModel, child){
+        return ListView.builder(
+          itemCount: viewModel.items.length, 
+          itemBuilder: (context, index){
+            Usuario item = viewModel.items[index];
+            return ListTile(
+              title: Text(item.Nombre),
+              subtitle: Text(item.Hora),);
+          });
+      },
     );
+    /*return ListView.builder(
+        itemCount: titles.length,
+        itemBuilder: (context, index) {
+          return Card(
+              child: ListTile(
+                  onTap: () {
+                    /*Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text(titles[index] + ' pressed!'),
+                    ));*/
+                  },
+                  title: Text(titles[index]),
+                  subtitle: Text(subtitles[index]),
+                  leading: const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          "https://images.unsplash.com/photo-1547721064-da6cfb341d50")),
+                  trailing: Icon(icons[index])));
+        });*/
   }
 }

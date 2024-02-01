@@ -43,8 +43,7 @@ class _SearchFormState extends State<SearchForm> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("Busqueda", style: titleStyleIndigo,),
-            const SizedBoxH20(),
+            
             DropdownButtonFormField(
               isExpanded: true,
               hint: const Text("Elegir"),

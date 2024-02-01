@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/widgets/setting_form.dart';
 
 class SettingView extends StatefulWidget {
@@ -15,6 +16,7 @@ class _SettingViewState extends State<SettingView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.indigo,
+        title: const Text("Configuración", style: titleStyleWhite ),
       ),
       backgroundColor: Colors.white,
       body: const SafeArea(

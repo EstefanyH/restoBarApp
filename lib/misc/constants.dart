@@ -105,3 +105,9 @@ const TextStyle titleStyleIndigo = TextStyle(
   color: Colors.indigo,
   fontSize: 36,
   fontWeight: FontWeight.w400);
+
+const TextStyle titleStyleWhite = TextStyle(
+  fontFamily: "Montserrat",
+  color: Colors.white,
+  fontSize: 18,
+  fontWeight: FontWeight.w400);
