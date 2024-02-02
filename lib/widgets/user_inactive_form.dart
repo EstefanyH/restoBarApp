@@ -21,14 +21,23 @@ class _UserInactiveFormState extends State<UserInactiveForm> {
   Widget build(BuildContext context) {
     return Consumer<UsuarioInactivoViewModel>(
       builder: (context, viewModel, child){
-        return ListView.builder(
-          itemCount: viewModel.items.length, 
-          itemBuilder: (context, index){
-            Usuario item = viewModel.items[index];
-            return ListTile(
-              title: Text(item.Nombre),
-              subtitle: Text(item.Hora),);
+
+        if(viewModel.items.isEmpty){
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          
+          return ListView.builder(
+            shrinkWrap: true,
+            itemCount: viewModel.items.length, 
+            itemBuilder: (context, index){
+              Usuario item = viewModel.items[index];
+              return ListTile(
+                title: Text(item.Nombre),
+                subtitle: Text(item.Hora),);
           });
+        }
       },
     );
     /*return ListView.builder(

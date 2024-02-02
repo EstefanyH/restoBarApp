@@ -16,16 +16,15 @@ class _SearchViewState extends State<SearchView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.indigo,
-        title: const Text("Busqueda", style: titleStyleWhite ),
+        title: const Text("Busqueda", style: style16White ),
         
       ),
       backgroundColor: Colors.white,
       body: const SafeArea(
         child: Stack(
           children: [
-            
             Padding(
-              padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 15.0, top: 50),
+              padding: EdgeInsets.all(20.0),
               child: SingleChildScrollView(
                 child: SearchForm(),
               ),

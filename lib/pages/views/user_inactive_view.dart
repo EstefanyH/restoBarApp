@@ -16,7 +16,7 @@ class _UserInactiveViewState extends State<UserInactiveView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.indigo,
-        title: const Text("Usuarios Off", style: titleStyleWhite ),
+        title: const Text("Usuarios Off", style: style16White ),
          actions: [
             IconButton(onPressed: () { 
               //context.read<UserViewModel>().logoutUserInUI(context);

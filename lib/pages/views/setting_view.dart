@@ -16,7 +16,7 @@ class _SettingViewState extends State<SettingView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.indigo,
-        title: const Text("Configuración", style: titleStyleWhite ),
+        title: const Text("Configuración", style: style16White ),
       ),
       backgroundColor: Colors.white,
       body: const SafeArea(

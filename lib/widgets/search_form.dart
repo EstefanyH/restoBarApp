@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/view_models/search_view_model.dart';
 
+import '../routes/route_manager.dart';
+
 class SearchForm extends StatefulWidget {
   const SearchForm({Key? key}) : super(key: key);
 
@@ -38,7 +40,7 @@ class _SearchFormState extends State<SearchForm> {
     return Form(
       key: context.read<SearchViewModel>().searchFormKey,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,7 +123,7 @@ class _SearchFormState extends State<SearchForm> {
               color: Colors.indigo,
               child: const Text("Buscar", style: style16White,), 
               onPressed: () { 
-                context.read<SearchViewModel>().searchInUI(context);
+                Navigator.popAndPushNamed(context, RouteManager.mapsView);
                },
               )
           ],),
