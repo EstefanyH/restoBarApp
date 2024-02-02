@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restobarapp/model/User.dart';
 
+import '../domain/model/user.dart';
 import '../view_models/user_inactive_view_model.dart';
 
 class UserInactiveForm extends StatefulWidget {

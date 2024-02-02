@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:restobarapp/model/User.dart';
 import 'package:http/http.dart';
+import 'package:restobarapp/domain/model/user.dart';
 
 class UsuarioInactiveService {
   final String apiUrl;

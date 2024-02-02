@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restobarapp/routes/route_manager.dart';
+import 'package:restobarapp/service/local_storage.dart';
 import 'package:restobarapp/view_models/search_view_model.dart';
 import 'package:restobarapp/view_models/user_inactive_view_model.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
 
-void main() {
+void main()  {
+  //await LocalStorage.configurePrefs();
   runApp(const MyApp());
 }
 

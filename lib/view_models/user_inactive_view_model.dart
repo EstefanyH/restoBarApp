@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restobarapp/model/User.dart';
+import 'package:restobarapp/domain/model/user.dart';
 import 'package:restobarapp/service/user_inactive_service.dart';
 
 class UsuarioInactivoViewModel extends ChangeNotifier {
