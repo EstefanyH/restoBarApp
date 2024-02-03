@@ -47,15 +47,15 @@ class _LoginFormState extends State<LoginForm> {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     getCurrentLocation();
-
-    final http = Http(baseUrl: 'https://reqres.in');
+/*
+    final http = Http(baseUrl: urlDomain);
     
     final AuthenticationRepository auth = AuthenticationRepositoryImpl(
       AuthenticationAPI(http),
     );
     auth.login('eve.holt@reqres.in', 'cityslicka').then(
       (value) => print(value)
-    );
+    );*/
   }
 
   @override
@@ -84,7 +84,7 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBoxH10(),
             TextFormField(
               textInputAction: TextInputAction.done, 
-              validator: validatePassword,
+              //validator: validatePassword,
               controller: passwordController,
               decoration: formDecoration('Password', Icons.lock_outline),
             ),

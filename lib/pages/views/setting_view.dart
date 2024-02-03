@@ -19,12 +19,12 @@ class _SettingViewState extends State<SettingView> {
         title: const Text("Configuración", style: style16White ),
       ),
       backgroundColor: Colors.white,
-      body: const SafeArea(
-        child: Stack(
-          children: [Padding(
-            padding: EdgeInsets.all(0.0),
-            child: SingleChildScrollView(
-              child: SettingForm(),),)],)),
-    );
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(child: SettingForm())
+          ],),
+    ));
   }
 }

@@ -1,18 +1,47 @@
 import 'package:flutter/cupertino.dart';
+import 'package:restobarapp/data/helpers/http.dart';
+import 'package:restobarapp/domain/response/login_response.dart';
+import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/routes/route_manager.dart';
-
+import '../data/data_source/remote/authentication_api.dart';
+import '../data/repositories_impl/authentication_repository_impl.dart';
+import '../domain/repositories/authentication_repository.dart';
 import '../widgets/dialogs.dart';
 
 class UserViewModel with ChangeNotifier{
   final loginFormKey = GlobalKey<FormState>();
   final registerFormKey = GlobalKey<FormState>();
 
-  void loginUserInUI(BuildContext context, {
+  //final AuthenticationRepository _repository;
+
+  //UserViewModel(this._repository);
+  final AuthenticationRepository _repository = AuthenticationRepositoryImpl(
+    AuthenticationAPI(Http(baseUrl: urlDomain)),
+  );
+/*
+  final http = Http(baseUrl: urlDomain);
+
+  final AuthenticationRepository auth = AuthenticationRepositoryImpl(
+    AuthenticationAPI(http),
+  );*/
+
+  void loginUserInUI(BuildContext context, { 
     required String email, required String password
   }) async {
     FocusManager.instance.primaryFocus?.unfocus();
     if(loginFormKey.currentState?.validate() ?? false) {
-      Navigator.of(context).popAndPushNamed(RouteManager.firstAppHomePage);
+    
+    //'eve.holt@reqres.in', 'cityslicka'
+    _repository.login(email, password).then(
+      (value) {
+        if (value.name == LoginResponse.ok.name) {
+          Navigator.of(context).popAndPushNamed(RouteManager.firstAppHomePage);
+        } else {
+          showSnackBar(context, 'Verificar el usuario y/o contraseña', 2000);
+        }
+      }
+    );
+
       //showSnackBar();
     }
   }
@@ -26,6 +55,7 @@ class UserViewModel with ChangeNotifier{
 
       if(registerFormKey.currentState?.validate() ?? false) {
         if(confirmPassword.toString().trim() != password) { 
+
           showSnackBar(context, 'password do not match', 2000);
         }
         else {
