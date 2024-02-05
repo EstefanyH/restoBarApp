@@ -41,6 +41,7 @@ class _LoginFormState extends State<LoginForm> {
     super.initState();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+
     getCurrentLocation();
   }
 
@@ -50,6 +51,7 @@ class _LoginFormState extends State<LoginForm> {
     passwordController.dispose();
     super.dispose();
   }
+  
   @override
   Widget build(BuildContext context) {
     return Form(

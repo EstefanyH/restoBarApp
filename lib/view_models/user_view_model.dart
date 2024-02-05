@@ -1,26 +1,30 @@
 import 'package:flutter/cupertino.dart';
+import 'package:restobarapp/data/data_source/remote/global_api.dart';
 import 'package:restobarapp/data/helpers/http.dart';
-import 'package:restobarapp/domain/response/login_response.dart';
-import 'package:restobarapp/misc/constants.dart';
+import 'package:restobarapp/data/repositories_impl/global_repository_impl.dart';
+import 'package:restobarapp/domain/repositories/global_repository.dart';
+import 'package:restobarapp/domain/response/http_response.dart';
 import 'package:restobarapp/routes/route_manager.dart';
 import '../data/data_source/remote/authentication_api.dart';
 import '../data/repositories_impl/authentication_repository_impl.dart';
 import '../domain/repositories/authentication_repository.dart';
 import '../widgets/dialogs.dart';
+import 'package:restobarapp/global/api_service.dart';
 
 class UserViewModel with ChangeNotifier{
   final loginFormKey = GlobalKey<FormState>();
   final registerFormKey = GlobalKey<FormState>();
 
-  //final AuthenticationRepository _repository;
-
-  //UserViewModel(this._repository);
   final AuthenticationRepository _repository = AuthenticationRepositoryImpl(
-    AuthenticationAPI(Http(baseUrl: urlDomain)),
+    AuthenticationAPI(Http(baseUrl: ApiService.urlDomain)),
   );
+
+  final GlobalRepository _globalRepository = GlobalRepositoryImpl(
+    GlobalAPI(Http(baseUrl: ApiService.urlDomain)),
+  );
+  
 /*
   final http = Http(baseUrl: urlDomain);
-
   final AuthenticationRepository auth = AuthenticationRepositoryImpl(
     AuthenticationAPI(http),
   );*/
@@ -34,7 +38,7 @@ class UserViewModel with ChangeNotifier{
     //'eve.holt@reqres.in', 'cityslicka'
     _repository.login(email, password).then(
       (value) {
-        if (value.name == LoginResponse.ok.name) {
+        if (value.name == HttpResponse.ok.name) {
           Navigator.of(context).popAndPushNamed(RouteManager.firstAppHomePage);
         } else {
           showSnackBar(context, 'Verificar el usuario y/o contraseña', 2000);
@@ -42,7 +46,6 @@ class UserViewModel with ChangeNotifier{
       }
     );
 
-      //showSnackBar();
     }
   }
 

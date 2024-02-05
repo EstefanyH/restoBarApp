@@ -1,23 +1,22 @@
-
 import 'dart:async';
 import 'dart:io';
 
-import 'package:restobarapp/data/helpers/http_method.dart';
+import 'package:restobarapp/data/helpers/http.dart';
 import 'package:restobarapp/domain/response/http_response.dart';
-import 'package:restobarapp/global/api_service.dart'; 
-import '../../helpers/http.dart';
 
-class AuthenticationAPI {
+import '../../../global/api_service.dart';
+import '../../helpers/http_method.dart';
+
+class GlobalAPI {
   final Http _http;
 
-  AuthenticationAPI(this._http);
+  GlobalAPI(this._http);
 
-  Future<HttpResponse> login(String email, String psw) async {
-    final result = await _http.request(ApiService.login,
-    method: HttpMethod.post,
+  Future<HttpResponse> parameters() async {
+    final result = await _http.request(ApiService.parameter,
+    method: HttpMethod.get,
     body: {
-      "email": email,
-      "password": psw
+      "page": 2
     });
 
     print("result data ${result.data}");
@@ -42,4 +41,5 @@ class AuthenticationAPI {
     return HttpResponse.unknowError;
 
   }
+
 }

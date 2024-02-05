@@ -1,4 +1,4 @@
-enum LoginResponse {
+enum HttpResponse {
   ok, 
   accessDenied,
   networkError, 
