@@ -2,12 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
-import 'package:restobarapp/data/data_source/remote/authentication_api.dart';
-import 'package:restobarapp/data/repositories_impl/authentication_repository_impl.dart';
-import 'package:restobarapp/domain/repositories/authentication_repository.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
-
-import '../data/helpers/http.dart';
 import '../misc/constants.dart';
 import '../misc/validators.dart';
 import '../routes/route_manager.dart';
@@ -47,15 +42,6 @@ class _LoginFormState extends State<LoginForm> {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     getCurrentLocation();
-/*
-    final http = Http(baseUrl: urlDomain);
-    
-    final AuthenticationRepository auth = AuthenticationRepositoryImpl(
-      AuthenticationAPI(http),
-    );
-    auth.login('eve.holt@reqres.in', 'cityslicka').then(
-      (value) => print(value)
-    );*/
   }
 
   @override

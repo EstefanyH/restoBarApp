@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:restobarapp/misc/constants.dart';
 import 'package:restobarapp/routes/route_manager.dart';
 
@@ -11,12 +10,23 @@ class SettingForm extends StatefulWidget {
 }
 
 class _SettingFormState extends State<SettingForm> {
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return  ListView(
       children: <Widget>[
         ListTile(
           leading: const Icon(Icons.gps_fixed, color: Colors.blue, ),
+          trailing: Switch(
+            value: false, 
+            activeColor: Colors.pink,
+            activeTrackColor: Colors.pinkAccent,
+            onChanged: (value){
+              setState(() {
+                isSwitched = value;
+              });
+            }),
           title: const Text('Ubicación', style: style16Black,),
           subtitle: const Text('Permiso'),
           onTap: () {
