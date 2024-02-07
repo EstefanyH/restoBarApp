@@ -4,7 +4,9 @@ import 'package:restobarapp/data/helpers/http.dart';
 import 'package:restobarapp/data/repositories_impl/global_repository_impl.dart';
 import 'package:restobarapp/domain/repositories/global_repository.dart';
 import 'package:restobarapp/domain/response/http_response.dart';
+import 'package:restobarapp/global/shared_variable.dart';
 import 'package:restobarapp/routes/route_manager.dart';
+import 'package:restobarapp/service/local_storage.dart';
 import '../data/data_source/remote/authentication_api.dart';
 import '../data/repositories_impl/authentication_repository_impl.dart';
 import '../domain/repositories/authentication_repository.dart';
@@ -22,7 +24,7 @@ class UserViewModel with ChangeNotifier{
   final GlobalRepository _globalRepository = GlobalRepositoryImpl(
     GlobalAPI(Http(baseUrl: ApiService.urlDomain)),
   );
-  
+
 /*
   final http = Http(baseUrl: urlDomain);
   final AuthenticationRepository auth = AuthenticationRepositoryImpl(
@@ -34,17 +36,27 @@ class UserViewModel with ChangeNotifier{
   }) async {
     FocusManager.instance.primaryFocus?.unfocus();
     if(loginFormKey.currentState?.validate() ?? false) {
-    
-    //'eve.holt@reqres.in', 'cityslicka'
-    _repository.login(email, password).then(
-      (value) {
-        if (value.name == HttpResponse.ok.name) {
-          Navigator.of(context).popAndPushNamed(RouteManager.firstAppHomePage);
-        } else {
-          showSnackBar(context, 'Verificar el usuario y/o contraseña', 2000);
-        }
+  
+ //'eve.holt@reqres.in', 'cityslicka'
+    _repository.login(email, password).then( (value) {
+      if (value.statusCode == HttpResponse.ok.name) {
+
+        //obtener parametros
+        _globalRepository.listParameter.then((value) async {
+          if (value.statusCode == HttpResponse.ok ) {
+
+            await LocalStorage.setParameter(prefs_parameters,value.data.toString());
+
+            Navigator.of(context).popAndPushNamed(RouteManager.firstAppHomePage);
+          }
+        });
+       
+      } else {
+        showSnackBar(context, 'Verificar el usuario y/o contraseña', 2000);
       }
-    );
+    });
+   
+   
 
     }
   }

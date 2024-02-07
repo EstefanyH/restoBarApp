@@ -1,5 +1,5 @@
-import '../response/http_response.dart';
+import 'package:restobarapp/domain/model/generic_response.dart';
 
 abstract class GlobalRepository {
-  Future<HttpResponse> get listParameter;
+  Future<GenericResponse> get listParameter;
 }
