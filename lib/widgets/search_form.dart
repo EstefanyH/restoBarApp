@@ -14,7 +14,11 @@ class SearchForm extends StatefulWidget {
 }
 
 class _SearchFormState extends State<SearchForm> {
-  
+  late TextEditingController departamentController;
+  late TextEditingController provinceController;
+  late TextEditingController districtController;
+  late TextEditingController sellerController;
+
   String _dropdownValue = 'Item 1';    
   var items = [     
     'Item 1', 
@@ -23,6 +27,15 @@ class _SearchFormState extends State<SearchForm> {
     'Item 4', 
     'Item 5', 
   ]; 
+
+  @override
+  void initState() {
+    super.initState();
+    departamentController =  TextEditingController();
+    provinceController =  TextEditingController();
+    districtController =  TextEditingController();
+    sellerController =  TextEditingController();
+  }
 
   void dropdownCallback(String? selectValue){
     if (selectValue is String) {
@@ -36,7 +49,6 @@ class _SearchFormState extends State<SearchForm> {
   @override
   Widget build(BuildContext context) {
 
-
     return Form(
       key: context.read<SearchViewModel>().searchFormKey,
       child: Padding(
@@ -45,6 +57,11 @@ class _SearchFormState extends State<SearchForm> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+  /*          DropdownMenu(
+              initialSelection: ,
+              dropdownMenuEntries: dropdownMenuEntries,
+              requestFocusOnTap: true,)
+*/
             
             DropdownButtonFormField(
               isExpanded: true,

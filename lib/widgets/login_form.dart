@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:restobarapp/view_models/user_view_model.dart';
 import '../misc/constants.dart';
 import '../misc/validators.dart';
-import '../routes/route_manager.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -77,7 +76,7 @@ class _LoginFormState extends State<LoginForm> {
               decoration: formDecoration('Password', Icons.lock_outline),
             ),
             const SizedBoxH20(),
-            ButtonBar(
+            /*ButtonBar(
               alignment: MainAxisAlignment.end,
               children: [ 
                 TextButton(
@@ -88,7 +87,7 @@ class _LoginFormState extends State<LoginForm> {
                   child: const Text(
                     'Forgot Password?', 
                     style: style16Black,)) ],
-            ),
+            ),*/
             //SIGN IN BUTTON
             CupertinoButton(
               borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -101,7 +100,7 @@ class _LoginFormState extends State<LoginForm> {
                   email: emailController.text.trim(),
                   password: passwordController.text.trim());
               }),
-            const SizedBoxH10(),
+            /*const SizedBoxH10(),
             CupertinoButton(
               borderRadius: const BorderRadius.all(Radius.circular(20)),
               color: Colors.white,
@@ -109,7 +108,7 @@ class _LoginFormState extends State<LoginForm> {
               style: style16Indigo,),
               onPressed: () { 
                 Navigator.popAndPushNamed(context, RouteManager.registerPage);
-              })
+              })*/
           ],),),
     );
   }

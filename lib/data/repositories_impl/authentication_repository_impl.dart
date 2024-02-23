@@ -2,7 +2,6 @@
 import 'package:restobarapp/data/data_source/remote/authentication_api.dart';
 import 'package:restobarapp/domain/model/generic_response.dart';
 import 'package:restobarapp/domain/repositories/authentication_repository.dart';
-import 'package:restobarapp/domain/response/http_response.dart'; 
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   

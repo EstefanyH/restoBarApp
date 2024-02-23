@@ -37,6 +37,10 @@
 
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyAkIUe9tMzzvldZzTr5JGsZ7USAPAh0uWw"/>
-               
+        <service
+            android:name="id.flutter.flutter_background_service.BackgroundService"
+            android:foregroundServiceType="WhatForegroundServiceTypeDoYouWant"
+        />
+              
     </application>
 </manifest>

@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[SizedBox( 
                 height: MediaQuery.of(context).size.height*0.1,
                 ),
-                const Text("First App",
+                const Text("Punto de Venta",
                 style: TextStyle(
                   fontFamily: "Montserrat",
                   fontSize: 40.0, 

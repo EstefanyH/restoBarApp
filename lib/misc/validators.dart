@@ -9,8 +9,10 @@ String? validateEmail(String? value){
   if (value == null || value.isEmpty) {
     return 'email address required';
   }
-  else if(!RegExp(r'^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)) {    
-    return 'invalid email address';
+  else if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)){
+  //else if(!RegExp('[a-zA-Z ]').hasMatch(value)) {
+  //else if(!RegExp(r'^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$').hasMatch(value)) {    
+    return 'usuario invalido';
   }
   return null;
 }

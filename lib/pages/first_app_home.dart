@@ -20,14 +20,6 @@ class _FirstAppHomeState extends State<FirstAppHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: const Text('First App', 
-          style: style16White,),),
-          actions: [
-            IconButton(onPressed: () { 
-              context.read<UserViewModel>().logoutUserInUI(context);
-            }, icon: const Icon(Icons.exit_to_app))
-          ],),*/
           body: IndexedStack(
             index: selectIndex,
             children: screens,),
